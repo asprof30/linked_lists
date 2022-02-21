@@ -29,3 +29,13 @@ if(li->dernier==NULL)li->dernier=nouveau;
 li->nbElt++;
 
 }
+void afficherlc(Liste*li){
+    int i =0;
+    li->courant = li->premier;
+while(i<li->nbElt)
+{
+    printf("--%d-",*((int *)li->courant->refer));
+    li->courant=li->courant->suivant;
+    i++;
+}
+}

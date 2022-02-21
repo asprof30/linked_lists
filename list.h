@@ -20,10 +20,9 @@ char* (*afficher)(objet*);
 }Liste;
 
 void initListe(Liste *li,int type,char *(*afficher)(objet*),int(*comparer)(objet*,objet*));
-
-
 Liste * creerliste(int type,char*(*afficher)(objet*),int (*comparer)(objet*,objet*));
 static Element*  creeElement();
 void insererEnTeteDeListe(Liste*li,objet*objet);
+void afficherlc(Liste*li);
 #endif // LIST_H_INCLUDED
 

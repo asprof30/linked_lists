@@ -24,5 +24,8 @@ Liste * creerliste(int type,char*(*afficher)(objet*),int (*comparer)(objet*,obje
 static Element*  creeElement();
 void insererEnTeteDeListe(Liste*li,objet*objet);
 void afficherlc(Liste*li);
+void insererEnFinDeLISTE(Liste*li,objet*objet);
+static void insererapres(Liste*li,Element* precedent,objet*objet);
+
 #endif // LIST_H_INCLUDED
 

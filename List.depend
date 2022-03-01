@@ -1,20 +1,23 @@
 # depslib dependency file v1.0
-1645444246 source:c:\users\kkkk\desktop\prepa\langage c\corrige\list\list.c
+1646122591 source:c:\users\kkkk\desktop\prepa\langage c\corrige\list\list.c
 	"list.h"
 	<math.h>
 	<stdio.h>
 	<stddef.h>
+	<stdbool.h>
 
-1645443918 c:\users\kkkk\desktop\prepa\langage c\corrige\list\list.h
+1645534642 c:\users\kkkk\desktop\prepa\langage c\corrige\list\list.h
 
-1645444279 source:c:\users\kkkk\desktop\prepa\langage c\corrige\list\main.cpp
+1646122424 source:c:\users\kkkk\desktop\prepa\langage c\corrige\list\main.cpp
 	"list.h"
 	"list.c"
 	<stdio.h>
+	<iostream>
 
-1645444319 c:\users\kkkk\desktop\prepa\langage c\corrige\list\list.c
+1646122591 c:\users\kkkk\desktop\prepa\langage c\corrige\list\list.c
 	"list.h"
 	<math.h>
 	<stdio.h>
 	<stddef.h>
+	<stdbool.h>
 

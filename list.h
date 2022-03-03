@@ -1,6 +1,6 @@
 #ifndef LIST_H_INCLUDED
 #define LIST_H_INCLUDED
-
+#include <stdbool.h>
 typedef void objet;
 
 
@@ -16,6 +16,7 @@ Element *courant;
 int nbElt;
 int type;
 char* (*afficher)(objet*);
+int (*comparer)(objet*,objet*);
 
 }Liste;
 
@@ -26,6 +27,13 @@ void insererEnTeteDeListe(Liste*li,objet*objet);
 void afficherlc(Liste*li);
 void insererEnFinDeLISTE(Liste*li,objet*objet);
 static void insererapres(Liste*li,Element* precedent,objet*objet);
+objet*chercherObjet(Liste li,objet*objetchercher);
+objet* extraireEnTeteDeListe (Liste* li);
+static objet* extraireApres (Liste* li, Element* precedent) ;
+objet* extraireEnFinDeListe (Liste* li);
+bool extraireUnobjet (Liste* li, objet* objet);
+void detruireListe (Liste* li);
+
 
 #endif // LIST_H_INCLUDED
 

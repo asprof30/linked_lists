@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stddef.h>
 #include <stdbool.h>
-
+objet* extrait;
 
 //fonction d'initialisation:
 void initListe(Liste *li,int type,char *(*afficher)(objet*),int(*comparer)(objet*,objet*)){
@@ -24,6 +24,15 @@ initListe(li,type,afficher,comparer);
 return li;
 }
 
+bool listeVide(Liste* li){
+return li->nbElt==0;
+}
+
+
+int nbElement(Liste* li){
+return li->nbElt;
+
+}
 
 //fonction pour allouer l'espace memoire a un element:
 static Element*  creeElement(){
@@ -114,3 +123,87 @@ while(!finListe(li)){
 
 }
 }
+//fonction pour chercher un objet dans la liste
+objet*chercherUnObjet(Liste* li,objet* objetCherche){
+bool trouve=false;
+objet*objet;
+ouvrirListe(li);
+while(!finListe(li)&&!trouve){
+    objet = objetCourant (li);
+    trouve = li->comparer (objetCherche, objet)==0;
+  }
+  return trouve ? objet : NULL;
+}
+//fonction pour extraire un element entete d'une liste
+objet* extraireEnTeteDeListe (Liste* li) {
+  Element* extrait = li->premier;
+  if (!listeVide (li)) {
+     li->premier = li->premier->suivant;
+    if (li->premier=NULL) li->dernier=NULL;
+     li->nbElt--;
+  return extrait != NULL ? extrait->refer : NULL;
+}
+}
+//fonction pour extraire un element apres un precedent
+static objet* extraireApres (Liste* li, Element* precedent) {
+  if (precedent == NULL) {
+    return extraireEnTeteDeListe (li);
+   } else {
+    Element* extrait = precedent->suivant;
+   if (extrait != NULL) {
+      precedent->suivant = extrait->suivant;
+      if (extrait == li->dernier) li->dernier = precedent;
+      li->nbElt--;
+    }
+    return extrait != NULL ? extrait->refer : NULL;
+  }
+}
+//fonction extraire un element en fin de liste
+
+objet* extraireEnFinDeListe (Liste* li) {
+  objet* extrait;
+  if (listeVide (li)) {
+    extrait = NULL;
+   } else if (li->premier == li->dernier){
+    extrait = extraireEnTeteDeListe (li);
+   } else {
+    Element* ptc=li->premier;
+    while (ptc->suivant != li->dernier) ptc = ptc->suivant;
+    extrait = extraireApres (li, ptc);
+  }
+  return extrait;
+}
+bool extraireUnobjet (Liste* li, objet* objet) {
+
+  Element* precedent = NULL;
+  Element* ptc = NULL;
+  bool trouve = false;
+  ouvrirListe (li);
+  while (!finListe (li) && !trouve) {
+    precedent = ptc;
+    ptc= elementCourant (li);
+    trouve =(ptc->refer == objet) ? true : false;
+  }
+  if (!trouve){
+    return false;
+  }
+  extrait= extraireApres (li, precedent);
+  return true;
+}
+
+
+void detruireListe (Liste* li) {
+  ouvrirListe (li);
+ while (!finListe (li)) {
+    Element* ptc = elementCourant (li);
+    //free (ptc->reference);
+    free (ptc);
+    char* t;
+  initListe (li,5,t,7);
+}
+}
+
+
+
+
+

@@ -6,7 +6,8 @@
 	<stddef.h>
 	<stdbool.h>
 
-1645534642 c:\users\kkkk\desktop\prepa\langage c\corrige\list\list.h
+1646139774 c:\users\kkkk\desktop\prepa\langage c\corrige\list\list.h
+	<stdbool.h>
 
 1646122424 source:c:\users\kkkk\desktop\prepa\langage c\corrige\list\main.cpp
 	"list.h"
@@ -14,7 +15,7 @@
 	<stdio.h>
 	<iostream>
 
-1646122591 c:\users\kkkk\desktop\prepa\langage c\corrige\list\list.c
+1646143341 c:\users\kkkk\desktop\prepa\langage c\corrige\list\list.c
 	"list.h"
 	<math.h>
 	<stdio.h>

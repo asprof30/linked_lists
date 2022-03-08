@@ -13,9 +13,11 @@ return output;
 int comparer(objet* objet1, objet* objet2) {
 int *entier1=(int*)objet1;
 int *entier2=(int*)objet2;
-if (entier1>entier2) return 1;
-else if (entier1<entier2) return -1;
-else return 0;}
+if (*entier1>*entier2) return 1;
+else if (*entier1<*entier2) return -1;
+else
+return 0;
+}
 
 
 
@@ -27,7 +29,7 @@ int main()
 
     while(enter==0){
 
-       printf("pour inserer en tete entrer 1:\npour inserer en fin entrer 2 \npour supprimer en tete entrer 3 \npour supprimer en fin entrer 4 \npour supprimer apres un objet entrer5 \n");
+       printf("pour inserer en tete entrer 1\t\t:\npour inserer en fin entrer 2\t\t: \npour supprimer en tete entrer 3\t\t: \npour supprimer en fin entrer 4\t\t: \npour supprimer apres un objet entrer 5\t: \n");
     scanf("%d",&num);
 
     switch(num){

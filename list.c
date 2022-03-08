@@ -139,9 +139,8 @@ objet* extraireEnTeteDeListe (Liste* li) {
   Element* extrait = li->premier;
   if (!listeVide (li)) {
      li->premier = li->premier->suivant;
-   /* if (li->premier=NULL)
-    li->dernier=NULL;
-*/
+  if (li->premier==NULL)li->dernier=NULL;
+
      li->nbElt--;
 }
   return extrait != NULL ? extrait->refer : NULL;
@@ -184,13 +183,13 @@ bool extraireUnobjet (Liste* li, objet* objet) {
     precedent = ptc;
     ptc= elementCourant (li);
 
-    trouve =(ptc->refer == objet) ? true : false;
+    trouve =(li->comparer(ptc->refer,objet)==0) ? true : false;
   }
   if (!trouve){
     return false;
   }
 
- extraireApres (li, precedent);
+ extraireApres (li, ptc);
 
   return true;
 }

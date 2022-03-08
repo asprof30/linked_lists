@@ -3,16 +3,16 @@
 #include <stdio.h>
 #include <stddef.h>
 #include <stdbool.h>
-objet* extrait;
 
 //fonction d'initialisation:
-void initListe(Liste *li,int type,char *(*afficher)(objet*),int(*comparer)(objet*,objet*)){
+void initListe(Liste *li,int type,char* (*afficher)(objet*),int(*comparer)(objet*,objet*)){
 li->premier=NULL;
 li->dernier=NULL;
 li->courant=NULL;
 li->nbElt=0;
 li->type=type;
 li->afficher=afficher;
+li->comparer =comparer;
 
 }
 
@@ -119,7 +119,7 @@ void listerListe(Liste * li){
 ouvrirListe(li);
 while(!finListe(li)){
     objet *objet=objetCourant(li);
-    printf("-%s-",li->afficher(objet));
+    printf("*****%s",li->afficher(objet));
 
 }
 }
@@ -139,10 +139,12 @@ objet* extraireEnTeteDeListe (Liste* li) {
   Element* extrait = li->premier;
   if (!listeVide (li)) {
      li->premier = li->premier->suivant;
-    if (li->premier=NULL) li->dernier=NULL;
+   /* if (li->premier=NULL)
+    li->dernier=NULL;
+*/
      li->nbElt--;
-  return extrait != NULL ? extrait->refer : NULL;
 }
+  return extrait != NULL ? extrait->refer : NULL;
 }
 //fonction pour extraire un element apres un precedent
 static objet* extraireApres (Liste* li, Element* precedent) {
@@ -174,7 +176,6 @@ objet* extraireEnFinDeListe (Liste* li) {
   return extrait;
 }
 bool extraireUnobjet (Liste* li, objet* objet) {
-
   Element* precedent = NULL;
   Element* ptc = NULL;
   bool trouve = false;
@@ -182,12 +183,15 @@ bool extraireUnobjet (Liste* li, objet* objet) {
   while (!finListe (li) && !trouve) {
     precedent = ptc;
     ptc= elementCourant (li);
+
     trouve =(ptc->refer == objet) ? true : false;
   }
   if (!trouve){
     return false;
   }
-  extrait= extraireApres (li, precedent);
+
+ extraireApres (li, precedent);
+
   return true;
 }
 
@@ -196,10 +200,9 @@ void detruireListe (Liste* li) {
   ouvrirListe (li);
  while (!finListe (li)) {
     Element* ptc = elementCourant (li);
-    //free (ptc->reference);
+    free (ptc->refer);
     free (ptc);
-    char* t;
-  initListe (li,5,t,7);
+  initListe (li,NULL,NULL,NULL);
 }
 }
 

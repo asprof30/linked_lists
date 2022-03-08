@@ -22,3 +22,26 @@
 	<stddef.h>
 	<stdbool.h>
 
+1646735961 source:c:\users\elmeh\onedrive\bureau\linked lists\linked_lists\list.c
+	"list.h"
+	<math.h>
+	<stdio.h>
+	<stddef.h>
+	<stdbool.h>
+
+1646294444 c:\users\elmeh\onedrive\bureau\linked lists\linked_lists\list.h
+	<stdbool.h>
+
+1646735093 source:c:\users\elmeh\onedrive\bureau\linked lists\linked_lists\main.cpp
+	"list.h"
+	"list.c"
+	<stdio.h>
+	<iostream>
+
+1646736185 c:\users\elmeh\onedrive\bureau\linked lists\linked_lists\list.c
+	"list.h"
+	<math.h>
+	<stdio.h>
+	<stddef.h>
+	<stdbool.h>
+
